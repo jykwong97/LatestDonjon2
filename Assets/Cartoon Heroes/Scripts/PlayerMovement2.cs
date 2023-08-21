@@ -30,7 +30,7 @@ public class PlayerMovement2 : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetBool("IsJump", true);
             Jumping = true;
-            SoundManagerScript.PlaySound("jumping");
+            //SoundManagerScript.PlaySound("jumping");
             if (Jumping == true)
             {
                 animator.SetBool("IsFall", true);
