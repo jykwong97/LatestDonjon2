@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterTile.cs" />
+     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_PlugScript.cs" />
      <Compile Include="Assets\Cartoon Heroes\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Cartoon Heroes\Scripts\SetCharacter\SetCharacter.cs" />
      <Compile Include="Assets\Enemy\Script\Attacking.cs" />
@@ -53,9 +54,14 @@
      <Compile Include="Assets\Script\SoundManagerScript.cs" />
      <Compile Include="Assets\Cartoon Heroes\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Enemy\Script\EnemyBehaviour.cs" />
+     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_DoorScript.cs" />
+     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_HeroController.cs" />
      <Compile Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Sources\Scripts\Water.cs" />
+     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_HeroInteractive.cs" />
+     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_DoorKey.cs" />
      <Compile Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\SpecularLighting.cs" />
      <Compile Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\Displace.cs" />
+     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_Button.cs" />
      <Compile Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\MeshContainer.cs" />
      <Compile Include="Assets\Cartoon Heroes\Scripts\PlayerMovement2.cs" />
      <None Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\WaterInclude.cginc" />
@@ -64,6 +70,7 @@
      <None Include="Assets\donjon2\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-SimpleWater4.shader" />
      <None Include="Assets\donjon2\Standard Assets\Water (Pro Only)\Sources\Shaders\FX-Water.shader" />
+     <None Include="Assets\8Bit Music - 062022\Notes.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2022.3.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
