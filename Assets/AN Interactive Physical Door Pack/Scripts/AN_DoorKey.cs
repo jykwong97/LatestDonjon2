@@ -6,21 +6,20 @@ public class AN_DoorKey : MonoBehaviour
 {
     [Tooltip("True - red key object, false - blue key")]
     public bool isRedKey = true;
-    AN_HeroInteractive hero;
 
-    // NearView()
-    float distance;
-    float angleView;
-    Vector3 direction;
+    [Tooltip("Distance at which the object is considered 'Near'")]
+    public float nearDistance = 30f;
+
+    AN_HeroInteractive hero;
 
     private void Start()
     {
-        hero = FindObjectOfType<AN_HeroInteractive>(); // key will get up and it will saved in "inventary"
+        hero = FindObjectOfType<AN_HeroInteractive>(); // key will get up and it will saved in "inventory"
     }
 
     void Update()
     {
-        if ( NearView() && Input.GetKeyDown(KeyCode.E) )
+        if (NearView() && Input.GetKeyDown(KeyCode.E))
         {
             if (isRedKey) hero.RedKeyCount++;
             else hero.BlueKey = true;
@@ -30,8 +29,10 @@ public class AN_DoorKey : MonoBehaviour
 
     bool NearView() // it is true if you near interactive object
     {
-        distance = Vector3.Distance(transform.position, hero.transform.position);
-        if (distance < 30f) return true; // angleView < 35f && 
-        else return false;
+        float distance = Vector3.Distance(transform.position, hero.transform.position);
+        if (distance < nearDistance)
+            return true;
+        else
+            return false;
     }
 }

@@ -24,6 +24,8 @@ public class AN_DoorScript : MonoBehaviour
     [Range(0f, 4f)]
     [Tooltip("Speed for door opening, degrees per sec")]
     public float OpenSpeed = 3f;
+    [Tooltip("Distance at which the object is considered 'Near'")]
+    public float nearDistance = 30f;
 
     // NearView()
     float distance;
@@ -86,7 +88,7 @@ public class AN_DoorScript : MonoBehaviour
         distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         direction = transform.position - Camera.main.transform.position;
         angleView = Vector3.Angle(Camera.main.transform.forward, direction);
-        if (distance < 50f) return true; // angleView < 35f && 
+        if (distance < nearDistance) return true; // angleView < 35f && 
         else return false;
     }
 
