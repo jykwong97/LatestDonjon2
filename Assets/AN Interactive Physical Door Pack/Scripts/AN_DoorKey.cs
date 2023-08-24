@@ -22,7 +22,7 @@ public class AN_DoorKey : MonoBehaviour
     {
         if ( NearView() && Input.GetKeyDown(KeyCode.E) )
         {
-            if (isRedKey) hero.RedKey = true;
+            if (isRedKey) hero.RedKeyCount++;
             else hero.BlueKey = true;
             Destroy(gameObject);
         }
@@ -31,7 +31,7 @@ public class AN_DoorKey : MonoBehaviour
     bool NearView() // it is true if you near interactive object
     {
         distance = Vector3.Distance(transform.position, hero.transform.position);
-        if (distance < 50f) return true; // angleView < 35f && 
+        if (distance < 30f) return true; // angleView < 35f && 
         else return false;
     }
 }

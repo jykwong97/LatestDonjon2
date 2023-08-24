@@ -56,10 +56,10 @@ public class AN_DoorScript : MonoBehaviour
         if (!Locked)
         {
             // key lock checking
-            if (HeroInteractive != null && RedLocked && HeroInteractive.RedKey)
+            if (HeroInteractive != null && RedLocked && HeroInteractive.RedKeyCount >=3)
             {
                 RedLocked = false;
-                HeroInteractive.RedKey = false;
+                HeroInteractive.RedKeyCount = 0;
             }
             else if (HeroInteractive != null && BlueLocked && HeroInteractive.BlueKey)
             {
@@ -75,7 +75,7 @@ public class AN_DoorScript : MonoBehaviour
             else if (!isOpened && CanOpen && !RedLocked && !BlueLocked)
             {
                 isOpened = true;
-                rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f)); 
+                rbDoor.AddRelativeTorque(new Vector3(0, 0, 20000f)); 
             }
         
         }
@@ -86,7 +86,7 @@ public class AN_DoorScript : MonoBehaviour
         distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         direction = transform.position - Camera.main.transform.position;
         angleView = Vector3.Angle(Camera.main.transform.forward, direction);
-        if (distance < 100f) return true; // angleView < 35f && 
+        if (distance < 50f) return true; // angleView < 35f && 
         else return false;
     }
 
