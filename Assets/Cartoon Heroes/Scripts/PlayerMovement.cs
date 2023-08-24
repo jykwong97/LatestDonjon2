@@ -5,40 +5,48 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
-    private bool walking = false; // Variable to track if the player is walking
+    private bool walking = false;
 
-    // AudioClips
+
     public AudioClip walk;
     public AudioClip sprite;
     private AudioSource player;
 
-    // Start is called before the first frame update
+
+    public float moveSpeed = 5f;
+    public float rotationSpeed = 90f;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GetComponent<AudioSource>();
 
-        // Check if AudioSource component is present, and add one if not found
         if (player == null)
         {
             player = gameObject.AddComponent<AudioSource>();
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Vector3 dir = new Vector3(horizontal, 0, vertical);
 
-        if (dir != Vector3.zero)
+
+        if (vertical != 0 || horizontal != 0)
         {
-            transform.rotation = Quaternion.LookRotation(dir);
-            animator.SetBool("IsRun", true);
-            walking = true; // Player is walking
+            Vector3 moveDirection = new Vector3(horizontal, 0, vertical).normalized;
 
-            // Check if the walk sound is not currently playing before playing it
+            if (horizontal != 0)
+            {
+                transform.Rotate(Vector3.up * horizontal * rotationSpeed * Time.deltaTime);
+            }
+
+            transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+
+            animator.SetBool("IsRun", true);
+            walking = true;
+
             if (!player.isPlaying)
             {
                 player.clip = walk;
@@ -48,15 +56,16 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("IsRun", false);
-            walking = false; // Player is not walking
-            player.Stop(); // Stop the walk sound when the player stops walking
+            walking = false;
+            player.Stop();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && walking) // Check if the player is walking and Left Shift is pressed
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && walking)
         {
-            animator.SetTrigger("Sprite"); // Trigger the "sprite" animation
+            animator.SetTrigger("Sprite");
             player.clip = sprite;
-            player.Play(); // Play the sprite sound
+            player.Play();
         }
     }
 }
