@@ -7923,7 +7923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRedKey: 1
   nearDistance: 30
-  keyCountText: {fileID: 0}
+  keyCountText: {fileID: 592236551}
 --- !u!1001 &355721746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50391,7 +50391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRedKey: 1
   nearDistance: 30
-  keyCountText: {fileID: 0}
+  keyCountText: {fileID: 592236551}
 --- !u!4 &1916731554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
