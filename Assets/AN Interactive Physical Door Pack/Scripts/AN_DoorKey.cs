@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class AN_DoorKey : MonoBehaviour
 {
@@ -9,8 +11,10 @@ public class AN_DoorKey : MonoBehaviour
 
     [Tooltip("Distance at which the object is considered 'Near'")]
     public float nearDistance = 30f;
+    public TextMeshProUGUI keyCountText;
 
     AN_HeroInteractive hero;
+    
 
     private void Start()
     {
@@ -21,9 +25,15 @@ public class AN_DoorKey : MonoBehaviour
     {
         if (NearView() && Input.GetKeyDown(KeyCode.E))
         {
-            if (isRedKey) hero.RedKeyCount++;
+            if (isRedKey)
+            {
+                hero.RedKeyCount++;
+                UpdateKeyCounterUI();
+            }
+
             else hero.BlueKey = true;
             Destroy(gameObject);
+            SoundManagerScript.PlaySound("takeKey");
         }
     }
 
@@ -34,5 +44,9 @@ public class AN_DoorKey : MonoBehaviour
             return true;
         else
             return false;
+    }
+    void UpdateKeyCounterUI()
+    {
+        keyCountText.text = "Red Keys: " + hero.RedKeyCount;
     }
 }

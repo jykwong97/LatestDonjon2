@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AN_DoorScript : MonoBehaviour
 {
@@ -77,7 +78,9 @@ public class AN_DoorScript : MonoBehaviour
             else if (!isOpened && CanOpen && !RedLocked && !BlueLocked)
             {
                 isOpened = true;
-                rbDoor.AddRelativeTorque(new Vector3(0, 0, 20000f)); 
+                rbDoor.AddRelativeTorque(new Vector3(0, 0, 20000f));
+                SceneManager.LoadScene("Win");
+
             }
         
         }

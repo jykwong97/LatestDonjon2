@@ -14,6 +14,7 @@ public class trapFunction : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(damageAmount); // 调用玩家的 TakeDamage 函数来扣除血量
+                SoundManagerScript.PlaySound("hit");
             }
         }
     }

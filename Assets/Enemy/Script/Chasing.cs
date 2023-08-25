@@ -78,6 +78,7 @@ public class Chase : MonoBehaviour
         foreach(Collider Player in hitPlayer) 
         {
             Player.GetComponent<PlayerController>().TakeDamage(attackdamage);
+            SoundManagerScript.PlaySound("hit");
         }
 
     // Collider[] hitResults = new Collider[1];
