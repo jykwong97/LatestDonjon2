@@ -30,7 +30,7 @@ public class Chase : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(enemy.transform.position, Player.position);
         Debug.Log("distanceToPlayer  " + distanceToPlayer);
         Debug.Log("attackRange  " + attackRange);
-        Debug.Log("Player.position  " + Player.position);
+        
         
         if (Time.time - lastAttackTime >= attackCooldown)
         {
@@ -41,7 +41,6 @@ public class Chase : MonoBehaviour
                 lastAttackTime = Time.time; // Update the last attack time
             }
             else{
-                Debug.Log("Chase");
                 ChasePlayer();
             }
         }
@@ -71,13 +70,16 @@ public class Chase : MonoBehaviour
         Debug.Log("Trigger Attack");
         animator.SetTrigger("Attack");  
         Collider [] hitPlayer = Physics.OverlapSphere(attackPoint.position, attackRange,playerLayers);
-        Debug.Log("hitPlayer: " + hitPlayer);
-        Debug.Log("Number of players hit: " + hitPlayer.Length);
+        Debug.Log("no");
+        Debug.Log("Player.position  " + Player.position);
         Debug.Log("attackPoint.position: " + attackPoint.position);
         Debug.Log("attackRange: " + attackRange);
         foreach(Collider Player in hitPlayer) 
         {
             Player.GetComponent<PlayerController>().TakeDamage(attackdamage);
+            Debug.Log("hit");
+            Debug.Log("attackPoint.position: " + attackPoint.position);
+            Debug.Log("attackRange: " + attackRange);
             SoundManagerScript.PlaySound("hit");
         }
 
