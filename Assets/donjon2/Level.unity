@@ -1249,7 +1249,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66377539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 66377553}
-  jumpForce: 100
+  jumpForce: 10
   rollForce: 5
 --- !u!136 &66377550
 CapsuleCollider:
@@ -1339,7 +1339,7 @@ CapsuleCollider:
   m_Radius: 0.12
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 1.2, z: 0}
+  m_Center: {x: 0, y: 0.43, z: 0}
 --- !u!54 &66377553
 Rigidbody:
   m_ObjectHideFlags: 0
