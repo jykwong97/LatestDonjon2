@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/L_FG_Assets_Pack_Lite/Demo/Demo6.unity
+- path: Assets/Modular Castle/DemoScene/castleDemo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
