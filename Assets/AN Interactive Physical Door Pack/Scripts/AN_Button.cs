@@ -12,6 +12,8 @@ public class AN_Button : MonoBehaviour
     public bool Locked = false;
     [Tooltip("The door for remote control")]
     public AN_DoorScript DoorObject;
+    [Tooltip("Distance at which the object is considered 'Near'")]
+    public float nearDistance = 30f;
     [Space]
     [Tooltip("Any object for ramp/elevator baheviour")]
     public Transform RampObject;
@@ -100,10 +102,10 @@ public class AN_Button : MonoBehaviour
 
     bool NearView() // it is true if you near interactive object
     {
-        distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        direction = transform.position - Camera.main.transform.position;
-        angleView = Vector3.Angle(Camera.main.transform.forward, direction);
-        if (angleView < 45f && distance < 2f) return true;
-        else return false;
+            distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+            direction = transform.position - Camera.main.transform.position;
+            angleView = Vector3.Angle(Camera.main.transform.forward, direction);
+            if (distance < nearDistance) return true; // angleView < 35f && 
+            else return false;
     }
 }
