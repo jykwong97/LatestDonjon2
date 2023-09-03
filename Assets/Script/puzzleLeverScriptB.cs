@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class puzzleLeverScriptB : MonoBehaviour
@@ -16,6 +17,9 @@ public class puzzleLeverScriptB : MonoBehaviour
 
     puzzleDoorScript door;
 
+    private float triggerCooldown = 1.0f;
+    private float lastTriggerTime = -1.0f; // Initialize it to a negative value to ensure the first trigger can happen immediately.
+
     Animator anim;
 
     // Start is called before the first frame update
@@ -30,7 +34,7 @@ public class puzzleLeverScriptB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && NearView())
+        if (Input.GetKeyDown(KeyCode.E) && NearView() && CanTrigger())
         {
             if (anim.GetBool("LeverUp") == true)
             {
@@ -39,15 +43,17 @@ public class puzzleLeverScriptB : MonoBehaviour
                 {
                     if (!fireEffectA.isPlaying)
                     {
+                        door.lockA = true;
                         // Start the fire effect if it's not playing
                         fireEffectA.Play();
-                        door.lockB = true;
+                        
                     }
                     else
                     {
+                        door.lockA = false;
                         // Stop the fire effect if it's playing
                         fireEffectA.Stop();
-                        door.lockB = false;
+                        
                     }
                 }
 
@@ -59,18 +65,22 @@ public class puzzleLeverScriptB : MonoBehaviour
                 {
                     if (!fireEffectA.isPlaying)
                     {
+                        door.lockA = true;
                         // Start the fire effect if it's not playing
                         fireEffectA.Play();
-                        door.lockB = true;
+                        
                     }
                     else
                     {
+                        door.lockA = false;
                         // Stop the fire effect if it's playing
                         fireEffectA.Stop();
-                        door.lockB = false;
+                        
                     }
                 }
+
             }
+            lastTriggerTime = Time.time;
         }
     }
 
@@ -82,4 +92,11 @@ public class puzzleLeverScriptB : MonoBehaviour
         else
             return false;
     }
+
+    bool CanTrigger()
+    {
+        // Check if enough time has passed since the last trigger.
+        return Time.time - lastTriggerTime >= triggerCooldown;
+    }
+
 }

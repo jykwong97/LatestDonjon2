@@ -95,6 +95,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Script\puzzleLeverScriptA.cs" />
+    <Compile Include="Assets\Script\puzzleDoorScript2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Script\yellowPlugScript.cs" />
     <Compile Include="Assets\Map_donjon2\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\Displace.cs" />
     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_HeroController.cs" />
     <Compile Include="Assets\AN Interactive Physical Door Pack\Scripts\AN_HeroInteractive.cs" />

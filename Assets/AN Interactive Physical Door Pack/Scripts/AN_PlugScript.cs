@@ -11,6 +11,10 @@ public class AN_PlugScript : MonoBehaviour
     [Tooltip("SocketObject with collider(shpere, box etc.) (is trigger = true)")]
     public Collider Socket; // need Trigger
     public AN_DoorScript DoorObject;
+    [Tooltip("Distance at which the object is considered 'Near'")]
+    public float nearDistance = 50f;
+
+    AN_HeroInteractive hero;
 
     // NearView()
     float distance;
@@ -23,6 +27,7 @@ public class AN_PlugScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        hero = FindObjectOfType<AN_HeroInteractive>();
     }
 
     void Update()
@@ -57,8 +62,8 @@ public class AN_PlugScript : MonoBehaviour
             rb.angularDrag = 10f;
             if (followFlag)
             {
-                distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-                if (distance > 3f || Input.GetKeyDown(KeyCode.E))
+                distance = Vector3.Distance(transform.position, hero.transform.position);
+                if (distance > 10f || Input.GetKeyDown(KeyCode.E))
                 {
                     follow = false;
                 }
@@ -78,11 +83,11 @@ public class AN_PlugScript : MonoBehaviour
 
     bool NearView() // it is true if you near interactive object
     {
-        distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        direction = transform.position - Camera.main.transform.position;
-        angleView = Vector3.Angle(Camera.main.transform.forward, direction);
-        if (distance < 3f && angleView <35f) return true;
-        else return false;
+        float distance = Vector3.Distance(transform.position, hero.transform.position);
+        if (distance < nearDistance)
+            return true;
+        else
+            return false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -91,7 +96,6 @@ public class AN_PlugScript : MonoBehaviour
         {
             isConnected = true;
             follow = false;
-            DoorObject.rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f));
         }
         if (OneTime) youCan = false;
     }
