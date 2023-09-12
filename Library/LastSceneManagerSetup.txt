@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Map_cemetery halloween (Yunixe)/Demo/Main.unity
+- path: Assets/Map_Triple Dungeon Pack/Blue Dungeon/Demo Blue.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

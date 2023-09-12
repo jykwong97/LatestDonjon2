@@ -107,7 +107,6 @@ public class Chase : MonoBehaviour
         {
             return; 
         }
-
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
